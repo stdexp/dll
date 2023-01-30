@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html   xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+      <div th:if="${tache.size()!=0}">
+        <table border="2">
+        <thead>
+           <tr> 
+           <th>ID Tache</th><th>Contenu</th><th>Categorie</th>
+           <th>Date Creation</th>
+           </tr>
+        </thead>
+         <tbody>
+           <tr th:each="t:${tache}"> 
+           <td th:text="${t.code_tache}"></td>
+           <td th:text="${t.contenu}"></td>
+           <td th:text="${t.categorie}"></td>
+           <td th:text="${t.date_creation}"></td>
+           </tr>
+        </tbody>
+        
+        </table>
+      
+      </div>
+      <div th:unless="${tache.size()!=0}">
+      
+       <h1>Aucune Tache n'est enregistrer dasn la table Tache</h1> 
+      </div>
+
+
+</body>
+</html>
