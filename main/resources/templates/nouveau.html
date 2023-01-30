@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Nouvelle tache</title>
+	<style>
+</style>
+</head>
+
+
+
+<body>
+
+<h1>Nouvelle tâche</h1>
+
+<form th:action="@{/tasks}" method="post" th:object="${task}">
+
+<p>CATEGORY : 
+<span th:each="cat: ${categories}" >
+   <input type="radio" name="category" 
+          th:field="${task.category.id}"
+   		  th:id="${cat.name}" 
+          th:value="${cat.id}"  
+          th:checked="${cat.id==task.category.id}"/>
+   <label th:for="${cat.name}" th:text="${cat.name}"></label> 
+</span>
+<p>
+
+<textarea type="text" name="content"  th:field="${task.content}" rows="7" require placehold="nothing yet"></textarea>
+</div>
+
+<input type="submit" value="Créer"> 
+</form>	
+
+</body>
+</html>
