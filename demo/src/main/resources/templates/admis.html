@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html   xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+      <div th:if="${etudiantAdmis}">
+        <table border="2">
+        <thead>
+           <tr> 
+           <th>ID</th><th>Nom</th><th>Note</th>
+           </tr>
+        </thead>
+         <tbody>
+           <tr th:each="e:${etudiantAdmis}"> 
+           <td th:text="${e.id}"></td>
+           <td th:text="${e.nom}"></td>
+           <td th:text="${e.note}"></td>
+           </tr>
+        </tbody>
+        
+        </table>
+      
+      </div>
+      <div th:unless="${etudiantAdmis}">
+      
+       <h1>Vide</h1> 
+      </div>
+
+
+</body>
+</html>
